@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { MatTableModule, MatTableDataSource} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MATERIAL_MODULES } from '../material';
+import { MatTableDataSource} from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+
 
 export interface alimentos {
   nome: string;
@@ -22,7 +23,7 @@ const ALIMENTOS_DATA: alimentos[] = [
   selector: 'app-tabela-calorias',
   templateUrl: './tabela-calorias.component.html',
   styleUrl: './tabela-calorias.component.css',
-  imports: [MatFormFieldModule, MatInputModule, MatTableModule]
+  imports: [MATERIAL_MODULES, CommonModule]
 })
 export class TabelaCaloriasComponent {
   displayedColumns: string[] = ['nome', 'calorias', 'proteinas', 'carboidratos'];
@@ -31,5 +32,15 @@ export class TabelaCaloriasComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  itensSelecionados: any[] = [];
+
+  addItem(alimento: alimentos) {
+    const alimentoExistente = this.itensSelecionados.some(selected => selected.nome === alimento.nome);
+
+    if (!alimentoExistente) {
+      this.itensSelecionados.push(alimento);
+    }
   }
 }

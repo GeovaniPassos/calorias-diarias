@@ -1,3 +1,12 @@
+<div class="itens-selecionados">
+  <h3>Alimentos selecionados:</h3>
+    <ul>
+      <li *ngFor="let alimento of itensSelecionados">
+        {{ alimento.nome }} {{ alimento.calorias }} calorias - {{ alimento.proteinas }} proteinas - {{ alimento.carboidratos }} carboidratos.
+      </li>
+    </ul>
+  </div>
+
 <mat-form-field>
   <mat-label>Filtro</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. banana" #input>
@@ -6,7 +15,7 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="nome">
     <th mat-header-cell *matHeaderCellDef> Nome </th>
-    <td mat-cell *matCellDef="let alimentos"> {{alimentos.nome}} </td>
+    <td mat-cell *matCellDef="let alimentos" (click)="addItem(alimentos)" style="cursor: pointer;"> {{alimentos.nome}} </td>
   </ng-container>
 
   <ng-container matColumnDef="calorias">
