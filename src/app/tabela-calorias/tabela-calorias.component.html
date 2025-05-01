@@ -1,10 +1,11 @@
 <div class="itens-selecionados">
   <h3>Alimentos selecionados:</h3>
-    <ul>
-      <li *ngFor="let alimento of itensSelecionados">
-        {{ alimento.nome }} {{ alimento.calorias }} calorias - {{ alimento.proteinas }} proteinas - {{ alimento.carboidratos }} carboidratos.
-      </li>
-    </ul>
+    <tr *ngFor="let alimento of itensSelecionados">
+      <td>{{ alimento.nome }}</td>
+      <td>{{ alimento.calorias }} calorias</td>
+      <td>{{ alimento.proteinas }} proteinas</td>
+      <td>{{ alimento.carboidratos }} carboidratos.</td>
+    </tr>
   </div>
 
 <mat-form-field>
