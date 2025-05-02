@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MATERIAL_MODULES } from '../material';
 import { MatTableDataSource} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { SelectQuantidadesComponent } from "../select-quantidades/select-quantidades.component";
 
 
 export interface alimentos {
@@ -29,10 +30,41 @@ export class TabelaCaloriasComponent {
   displayedColumns: string[] = ['nome', 'calorias', 'proteinas', 'carboidratos'];
   dataSource = new MatTableDataSource(ALIMENTOS_DATA);
 
+  //TODO: Falta corrigr o import do MatDialog
+  constructor(private dialog: MatDialog){}
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  alimentos: any[] = [];
+
+  onSelecionarAlimentos(alimentos: any) {
+    const dialogRef = this.dialog.open(SelectQuantidadesComponent, {
+      width: '300px',
+      data: alimentos
+    });
+
+
+    dialogRef.afterClosed().subscribe((resultado) => {
+      if(resultado) {
+        const itemSelecionado = {
+          nome: alimentos.nome,
+          tipo: resultado.tipo,
+          quantidade: resultado.quantidade,
+          calorias: alimentos.calorias * resultado.quantidade,
+          proteinas: alimentos.proteinas * resultado.quantidade,
+          caboidratos: alimentos.carboidratos * resultado.quantidade
+        };
+
+        this.itensSelecionados.push(itemSelecionado);
+        this.atualizarTotais();
+      }
+    })
+  }
+
+  atualizarTotais() {}
 
   itensSelecionados: any[] = [];
 

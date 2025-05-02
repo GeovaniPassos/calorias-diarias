@@ -12,10 +12,18 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. banana" #input>
     </mat-form-field>
 
+    <tr *ngFor="let alimento of alimentos" (click)="onSelecionarAlimentos(alimento)">
+      <td>{{ alimento.nome }}</td>
+      <td>{{ alimento.calorias }}</td>
+      <td>{{ alimento.proteinas }}</td>
+      <td>{{ alimento.carboidratos }}</td>
+    </tr>
+
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let alimentos" (click)="addItem(alimentos)" style="cursor: pointer;"> {{alimentos.nome}} </td>
+        <td mat-cell *matCellDef="let alimento of alimentos" (click)="onSelecionarAlimentos(alimento)" style="cursor: pointer;"> {{alimento.nome}} </td>
+
       </ng-container>
 
       <ng-container matColumnDef="calorias">
