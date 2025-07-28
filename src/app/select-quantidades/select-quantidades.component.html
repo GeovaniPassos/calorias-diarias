@@ -1,22 +1,24 @@
-<h2>Selecione a quantidade:</h2>
+<div class="contenier">
+  <h2>Selecione a quantidade:</h2>
 
-<form #form="ngForm" (ngSubmit)="onSubmit()">
+  <form #form="ngForm" (ngSubmit)="onSubmit()">
 
-  <mat-form-field appearance="fill">
-    <mat-label>Tipo de medida.</mat-label>
-      <mat-select name="tipo" [(ngModel)]="tipo" required>
-        <mat-option value="Kg - Quilo"></mat-option>
-        <mat-option value="Un - Unidade"></mat-option>
-      </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo de medida.</mat-label>
+        <mat-select name="tipo" [(ngModel)]="tipo" required>
+          <mat-option value="Quilo">Quilo</mat-option>
+          <mat-option value="Unidade">Unidade</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Quantidade:</mat-label>
-    <input matInput type="number" name="quantidade" [(ngModel)]="quantidade" required min="0.01" step="any">
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Quantidade:</mat-label>
+      <input matInput type="number" name="quantidade" [(ngModel)]="quantidade" required min="0.00" step="any">
+    </mat-form-field>
 
-  <div class="botoes">
-    <button mat-button type="submit" [disabled]="form.invalid">Adicionar</button>
-  </div>
+    <div class="botoes">
+      <button mat-button type="submit" [disabled]="form.invalid">Adicionar</button>
+    </div>
 
 </form>
+</div>

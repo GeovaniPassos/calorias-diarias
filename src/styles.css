@@ -3,3 +3,8 @@
 html{
   font-family: "Bona Nova SC Regular", sans-serif;
 }
+
+body {
+  margin: 0px;
+  padding: 0px;
+}

@@ -1,9 +1,10 @@
+import { ItensSelecionadosComponent } from '../itens-selecionados/itens-selecionados.component';
 import { Component } from '@angular/core';
 import { MATERIAL_MODULES } from '../material';
 import { MatTableDataSource} from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { SelectQuantidadesComponent } from "../select-quantidades/select-quantidades.component";
-
+import { MatDialog } from '@angular/material/dialog';
 
 export interface alimentos {
   nome: string;
@@ -21,16 +22,15 @@ const ALIMENTOS_DATA: alimentos[] = [
 ]
 
 @Component({
-  selector: 'app-tabela-calorias',
-  templateUrl: './tabela-calorias.component.html',
-  styleUrl: './tabela-calorias.component.css',
+  selector: 'app-tabela-alimentos',
+  templateUrl: './tabela-alimentos.component.html',
+  styleUrl: './tabela-alimentos.component.css',
   imports: [MATERIAL_MODULES, CommonModule]
 })
-export class TabelaCaloriasComponent {
+export class TabelaAlimentosComponent {
   displayedColumns: string[] = ['nome', 'calorias', 'proteinas', 'carboidratos'];
   dataSource = new MatTableDataSource(ALIMENTOS_DATA);
 
-  //TODO: Falta corrigr o import do MatDialog
   constructor(private dialog: MatDialog){}
 
   applyFilter(event: Event) {
@@ -38,16 +38,13 @@ export class TabelaCaloriasComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  alimentos: any[] = [];
-
-  onSelecionarAlimentos(alimentos: any) {
+  selecionarQtdAlimentos(alimentos: alimentos) {
     const dialogRef = this.dialog.open(SelectQuantidadesComponent, {
       width: '300px',
       data: alimentos
     });
 
-
-    dialogRef.afterClosed().subscribe((resultado) => {
+    dialogRef.afterClosed().subscribe((resultado: { tipo: any; quantidade: number; }) => {
       if(resultado) {
         const itemSelecionado = {
           nome: alimentos.nome,
@@ -58,21 +55,12 @@ export class TabelaCaloriasComponent {
           caboidratos: alimentos.carboidratos * resultado.quantidade
         };
 
-        this.itensSelecionados.push(itemSelecionado);
-        this.atualizarTotais();
+        //this.atualizarTotais();
       }
     })
   }
+  onSelecionarAlimentos(alimentos: alimentos){
 
-  atualizarTotais() {}
-
-  itensSelecionados: any[] = [];
-
-  addItem(alimento: alimentos) {
-    const alimentoExistente = this.itensSelecionados.some(selected => selected.nome === alimento.nome);
-
-    if (!alimentoExistente) {
-      this.itensSelecionados.push(alimento);
-    }
   }
+
 }

@@ -17,5 +17,4 @@ export const MATERIAL_MODULES = [
   MatSelectModule,
   MatButtonModule,
   FormsModule,
-  MatDialog
 ]

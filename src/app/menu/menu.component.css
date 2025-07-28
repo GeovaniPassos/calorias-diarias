@@ -1,0 +1,31 @@
+
+.header {
+  background-color: rgba(38, 53, 53, 0.87);
+  margin: 0px;
+  padding: 50px 200px;
+  text-align: right;
+}
+
+h1 {
+  display: inline-block;
+  color: white;
+}
+
+button {
+  font-size: 1.3em;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 0px 30px;
+  margin-left: 50px;
+}
+
+button:hover {
+  font-size: 1.3em;
+  color: rgba(38, 53, 53, 0.87);
+  background-color: white;
+}
+
+
+
