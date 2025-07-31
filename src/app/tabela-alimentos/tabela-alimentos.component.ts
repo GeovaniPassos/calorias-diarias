@@ -38,22 +38,15 @@ export class TabelaAlimentosComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  selecionarQtdAlimentos(alimentos: alimentos) {
+  selecionarQtdAlimentos(alimentos: alimentos) : void {
     const dialogRef = this.dialog.open(SelectQuantidadesComponent, {
       width: '300px',
       data: alimentos
     });
 
-    dialogRef.afterClosed().subscribe((resultado: { tipo: any; quantidade: number; }) => {
-      if(resultado) {
-        const itemSelecionado = {
-          nome: alimentos.nome,
-          tipo: resultado.tipo,
-          quantidade: resultado.quantidade,
-          calorias: alimentos.calorias * resultado.quantidade,
-          proteinas: alimentos.proteinas * resultado.quantidade,
-          caboidratos: alimentos.carboidratos * resultado.quantidade
-        };
+    dialogRef.afterClosed().subscribe((quantidadeSelecionada: number | undefined) => {
+      if (quantidadeSelecionada !== undefined ) {
+        console.log(`Quantidade escolhida ${alimentos.nome}: ${quantidadeSelecionada}`)
 
         //this.atualizarTotais();
       }
