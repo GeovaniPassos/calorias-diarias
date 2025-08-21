@@ -52,10 +52,12 @@ export class TabelaAlimentosComponent {
           quantidade: resultado.quantidade,
           calorias: alimentos.calorias * resultado.quantidade,
           proteinas: alimentos.proteinas * resultado.quantidade,
-          caboidratos: alimentos.carboidratos * resultado.quantidade
+          carboidratos: alimentos.carboidratos * resultado.quantidade
         };
 
-        //this.atualizarTotais();
+        const itensSelecionadosComponent = new ItensSelecionadosComponent();
+        itensSelecionadosComponent.alimentosSelecionados.push(itemSelecionado);
+
       }
     })
   }

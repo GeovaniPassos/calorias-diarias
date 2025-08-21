@@ -2,13 +2,14 @@
 .header {
   background-color: rgba(38, 53, 53, 0.87);
   margin: 0px;
-  padding: 50px 200px;
-  text-align: right;
+  padding: 20px 0px;
+
 }
 
 h1 {
   display: inline-block;
   color: white;
+  text-align: left;
 }
 
 button {
@@ -18,7 +19,10 @@ button {
   border: 2px solid white;
   border-radius: 20px;
   padding: 0px 30px;
-  margin-left: 50px;
+  margin-left:70%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 button:hover {

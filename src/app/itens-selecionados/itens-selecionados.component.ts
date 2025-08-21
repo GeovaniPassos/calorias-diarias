@@ -1,5 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MATERIAL_MODULES } from '../material';
+import { MatTableDataSource } from '@angular/material/table';
+export interface AlimentoSelecionado {
+  nome: string;
+  tipo: string;
+  quantidade: number;
+  calorias: number;
+  proteinas: number;
+  carboidratos: number;
+}
 
 @Component({
   selector: 'app-itens-selecionados',
@@ -7,13 +16,15 @@ import { MATERIAL_MODULES } from '../material';
   templateUrl: './itens-selecionados.component.html',
   styleUrl: './itens-selecionados.component.css'
 })
-export class ItensSelecionadosComponent {
-  @Input() alimentosSelecionados: {
-    nome: string;
-    tipo: string;
-    quantidade: number;
-    calorias: number;
-    proteinas: number;
-    carboidratos: number;
-  }[] = [];
+export class ItensSelecionadosComponent implements OnChanges {
+  displayedColumns: string[] = ['nome', 'quantidade' ,'calorias', 'proteinas', 'carboidratos'];
+  dataSource = new MatTableDataSource<AlimentoSelecionado>([]);
+
+  @Input() alimentosSelecionados: AlimentoSelecionado[] = [];
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['alimentosSelecionados']) {
+      this.dataSource.data = this.alimentosSelecionados;
+    }
+  }
 }

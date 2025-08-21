@@ -8,7 +8,7 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="nome">
       <th mat-header-cell *matHeaderCellDef> Nome </th>
-      <td mat-cell *matCellDef="let alimento of alimentos" style="cursor: pointer;"> {{alimento.nome}} </td>
+      <td mat-cell *matCellDef="let alimento of alimentos" (click)="selecionarQtdAlimentos(alimento)" style="cursor: pointer;"> {{alimento.nome}} </td>
 
     </ng-container>
 
