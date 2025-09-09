@@ -30,10 +30,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
 
 html{
-  font-family: "Bona Nova SC Regular", sans-serif;
+  
 }
 
 body {
   margin: 0px;
   padding: 0px;
+  background-color: white;
+  display: flex;
+  font-family: "Bona Nova SC Regular", sans-serif;
 }

@@ -8,7 +8,7 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="nome">
       <th mat-header-cell *matHeaderCellDef> Nome </th>
-      <td mat-cell *matCellDef="let alimento of alimentos" (click)="selecionarQtdAlimentos(alimento)" style="cursor: pointer;"> {{alimento.nome}} </td>
+      <td mat-cell *matCellDef="let alimento of alimentos" style="cursor: pointer;"> {{alimento.nome}} </td>
 
     </ng-container>
 
@@ -27,11 +27,16 @@
       <td mat-cell *matCellDef="let alimentos"> {{alimentos.carboidratos}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="gorduras">
+      <th mat-header-cell *matHeaderCellDef> Gorduras</th>
+      <td mat-cell *matCellDef="let alimentos"> {{alimentos.gorduras}} </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
     <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" colspan="4">Não encontrado o alimento: "{{input.value}}"</td>
+      <td class="mat-cell" colspan="5">Não encontrado o alimento: "{{input.value}}"</td>
     </tr>
   </table>
 </div>

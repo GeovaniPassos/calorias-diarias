@@ -11,14 +11,15 @@ export interface alimentos {
   calorias: number;
   proteinas: number;
   carboidratos: number;
+  gorduras: number;
 }
 
 const ALIMENTOS_DATA: alimentos[] = [
-  {nome: 'Banana', calorias: 22, proteinas: 10, carboidratos: 5},
-  {nome: 'Pera', calorias: 20, proteinas: 10, carboidratos: 5},
-  {nome: 'Hamburguer', calorias: 342, proteinas: 10, carboidratos: 5},
-  {nome: 'Pizza', calorias: 222, proteinas: 10, carboidratos: 5},
-  {nome: 'Chocolate', calorias: 122, proteinas: 10, carboidratos: 5},
+  {nome: 'Banana', calorias: 22, proteinas: 10, carboidratos: 5, gorduras: 6},
+  {nome: 'Pera', calorias: 20, proteinas: 10, carboidratos: 5, gorduras: 1},
+  {nome: 'Hamburguer', calorias: 342, proteinas: 10, carboidratos: 5, gorduras: 1},
+  {nome: 'Pizza', calorias: 222, proteinas: 10, carboidratos: 5, gorduras: 1},
+  {nome: 'Chocolate', calorias: 122, proteinas: 10, carboidratos: 5, gorduras: 1},
 ]
 
 @Component({
@@ -28,7 +29,7 @@ const ALIMENTOS_DATA: alimentos[] = [
   imports: [MATERIAL_MODULES, CommonModule]
 })
 export class TabelaAlimentosComponent {
-  displayedColumns: string[] = ['nome', 'calorias', 'proteinas', 'carboidratos'];
+  displayedColumns: string[] = ['nome', 'calorias', 'proteinas', 'carboidratos', 'gorduras'];
   dataSource = new MatTableDataSource(ALIMENTOS_DATA);
 
   constructor(private dialog: MatDialog){}
@@ -38,6 +39,7 @@ export class TabelaAlimentosComponent {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  /*
   selecionarQtdAlimentos(alimentos: alimentos) {
     const dialogRef = this.dialog.open(SelectQuantidadesComponent, {
       width: '300px',
@@ -52,7 +54,8 @@ export class TabelaAlimentosComponent {
           quantidade: resultado.quantidade,
           calorias: alimentos.calorias * resultado.quantidade,
           proteinas: alimentos.proteinas * resultado.quantidade,
-          carboidratos: alimentos.carboidratos * resultado.quantidade
+          carboidratos: alimentos.carboidratos * resultado.quantidade,
+          gorduras: alimentos.gorduras * resultado.quantidade
         };
 
         const itensSelecionadosComponent = new ItensSelecionadosComponent();
@@ -64,5 +67,5 @@ export class TabelaAlimentosComponent {
   onSelecionarAlimentos(alimentos: alimentos){
 
   }
-
+*/
 }

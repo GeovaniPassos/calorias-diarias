@@ -8,6 +8,7 @@ export interface AlimentoSelecionado {
   calorias: number;
   proteinas: number;
   carboidratos: number;
+  gorduras: number;
 }
 
 @Component({
@@ -17,7 +18,7 @@ export interface AlimentoSelecionado {
   styleUrl: './itens-selecionados.component.css'
 })
 export class ItensSelecionadosComponent implements OnChanges {
-  displayedColumns: string[] = ['nome', 'quantidade' ,'calorias', 'proteinas', 'carboidratos'];
+  displayedColumns: string[] = ['nome', 'quantidade' ,'calorias', 'proteinas', 'carboidratos','gorduras'];
   dataSource = new MatTableDataSource<AlimentoSelecionado>([]);
 
   @Input() alimentosSelecionados: AlimentoSelecionado[] = [];

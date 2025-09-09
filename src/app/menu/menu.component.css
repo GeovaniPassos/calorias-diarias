@@ -12,49 +12,72 @@
   height: 100px;
   width: 100vw;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.titulo {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  color: white;
+  
 }
 
 h1 {
   font-family: 'Protest Riot', sans-serif;
-  color: white;
-  font-weight: 300;
-  font-size: 2em;
-  border: 1px solid white;
+  font-size: 2.2em;
   letter-spacing: 1px;
-  width: 225px;
-  height: 30px;
+  font-weight: 300;
 }
 
 h2 {
-  color: white;
   font-family: 'roboto', sans-serif;
-  font-weight: lighter;
+  font-style: italic;
   font-size: 0.7em;
-  width: 180px;
-  height: 10px;
-  border: 1px solid white;
   font-weight: 300;
-  
+  margin-left: 68px;
+  margin-top: -5px;
+}
+
+.container{
+  font-size: 1em;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+p {
+  margin: 20px;
+}
+
+p:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 button {
-  font-size: 1.3em;
+  font-size: 1em;
+  font-weight: 300;
   color: white;
   background-color: transparent;
-  border: 2px solid white;
-  border-radius: 20px;
-  padding: 0px 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 10px;
-  height: 40px;
+  transition: all 0.5s ease;
+  border: 1px solid white;
+  border-radius: 30px;
+  
+  height: 30px;
+  width: 90px;
+  margin-right: 60px;  
+  
 }
 
 button:hover {
-  font-size: 1.3em;
+  font-size: 1em;
   color: #D7431F;
   background-color: white;
+  
 }
 
 

@@ -1,9 +1,11 @@
 .tabela-alimentos {
-  width: 47.5vw;
-  height: 100vh;
-  padding: 25px;
-  display: block;
+  padding: 10px;
+  background-color: lightgray;
+  margin: 10px;
+  
+  font-weight: 300;
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
-
-
-
