@@ -1,40 +1,55 @@
-<div>
+<div class="container-inteiro">
+  <p class="label-titulo">Para começarmos selecione a data e o alimento da lista de alimentos!</p>
   
-</div>
-<div class="tabela-itens-selecionados">
-  <h3>Alimentos Selecionados</h3>
-  <table mat-table [dataSource]="alimentosSelecionados" class="mat-elevation-z8">
-    <ng-container matColumnDef="nome">
-      <th mat-header-cell *matHeaderCellDef> Nome </th>
-      <td mat-cell *matCellDef="let item"> {{item.nome}} </td>
-    </ng-container>
+  <div class="filtro-data">
+    <p class="label-data">DATA</p>
+    <input type="date"  class="input-data">
+  </div>
 
-    <ng-container matColumnDef="quantidade">
-      <th mat-header-cell *matHeaderCellDef> Quantidade </th>
-      <td mat-cell *matCellDef="let item"> {{item.quantidade}} </td>
-    </ng-container>
+  <div class="tabela">
+    <div class="tabela-dos-itens">
+      <h3>Alimentos Selecionados</h3>
+      <table mat-table [dataSource]="alimentosSelecionados" class="mat-elevation-z8">
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let item"> {{item.nome}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="calorias">
-      <th mat-header-cell *matHeaderCellDef> Calorias </th>
-      <td mat-cell *matCellDef="let item"> {{item.calorias}} </td>
-    </ng-container>
+        <ng-container matColumnDef="quantidade">
+          <th mat-header-cell *matHeaderCellDef> Quantidade </th>
+          <td mat-cell *matCellDef="let item"> {{item.quantidade}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="proteinas">
-      <th mat-header-cell *matHeaderCellDef> Proteínas </th>
-      <td mat-cell *matCellDef="let item"> {{item.proteinas}} </td>
-    </ng-container>
+        <ng-container matColumnDef="calorias">
+          <th mat-header-cell *matHeaderCellDef> Calorias </th>
+          <td mat-cell *matCellDef="let item"> {{item.calorias}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="carboidratos">
-      <th mat-header-cell *matHeaderCellDef> Carboidratos </th>
-      <td mat-cell *matCellDef="let item"> {{item.carboidratos}} </td>
-    </ng-container>
+        <ng-container matColumnDef="proteinas">
+          <th mat-header-cell *matHeaderCellDef> Proteínas </th>
+          <td mat-cell *matCellDef="let item"> {{item.proteinas}} </td>
+        </ng-container>
 
-    <ng-container matColumnDef="gorduras">
-      <th mat-header-cell *matHeaderCellDef> Gorduras </th>
-      <td mat-cell *matCellDef="let item"> {{item.gorduras}} </td>
-    </ng-container>
+        <ng-container matColumnDef="carboidratos">
+          <th mat-header-cell *matHeaderCellDef> Carboidratos </th>
+          <td mat-cell *matCellDef="let item"> {{item.carboidratos}} </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+        <ng-container matColumnDef="gorduras">
+          <th mat-header-cell *matHeaderCellDef> Gorduras </th>
+          <td mat-cell *matCellDef="let item"> {{item.gorduras}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <div class="totais-dados">
+      <p>TOTAIS:</p>
+      <p>Calorias: 10</p>
+      <p>Proteínas: 10</p>
+      <p>Carboidratos: 10</p>
+      <p>Gorduras: 10</p>
+    </div>
+  </div>
 </div>

@@ -1,11 +1,18 @@
-.tabela-alimentos {
-  padding: 10px;
-  background-color: lightgray;
-  margin: 10px;
-  
+.tabela {
+  display: flex;
+  background-color: rgb(231, 231, 231);
+
   font-weight: 300;
   flex-direction: column;
-  flex: 1;
   display: flex;
-  justify-content: center;
+
+  height: 400px;
+  padding: 20px 30px;
+  border-radius: 15px;
+
+  margin: 10px;
+}
+
+.itens-tabela {
+  justify-items: center;
 }

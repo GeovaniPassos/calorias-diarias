@@ -1,13 +1,57 @@
-.tabela-itens-selecionados {
-  padding: 10px;
-  display: flex;
-  background-color: lightgray;
-  margin: 10px;
-  width: 100%;
+.tabela {
+  display: grid;
+  background-color: rgb(231, 231, 231);
   flex-direction: column;
+  
+  height: 330px;
+  border-radius: 10px;
+  
+  margin: 0px 10px 0px 0px;
+}
+
+.tabela-dos-itens {
+  height: 270px;
+  margin-top: 10px;
 }
 
 h3{
   display: flex;
   font-weight: 300;
+  margin-left: 10px;
+}
+
+.container-inteiro {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.label-titulo {
+  text-align: center;
+}
+
+.filtro-data {
+  display: flex;
+  justify-content: right;
+  margin:   0px 20px 0px 0px;
+  align-items: center;
+}
+
+.input-data {
+  margin-left: 10px;
+  padding: 5px 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.totais-dados {
+  display: flex;
+  background-color: gray;
+  color: white;
+  border-radius: 0px 0px 10px 10px;
+  font-weight: 700;
+  gap: 20px;
+  height: 50px;
+  padding: 0px 10px 0px 10px;
 }
